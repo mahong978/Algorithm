@@ -2,11 +2,11 @@ package dataStructure.tree;
 
 import java.util.LinkedList;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
-public class PrintTree {
+public class PrintBinaryTree {
 	public static void main(String[] args) {
-		DoubleNode root = new BinaryTreeBuilder(10)
+		BinaryNode root = new BinaryNode.Builder(10)
 				.addChild(4, 16)
 				.addChild(2, 7)
 				.addChild(15, 20)
@@ -14,12 +14,12 @@ public class PrintTree {
 		print(root);
 	}
 	
-	public static void print(DoubleNode root) {
-		LinkedList<DoubleNode> list = new LinkedList<>();
+	public static void print(BinaryNode root) {
+		LinkedList<BinaryNode> list = new LinkedList<>();
 		list.add(root);
 		
 		while(!list.isEmpty()) {
-			DoubleNode node = list.poll();
+			BinaryNode node = list.poll();
 			if (node == null) continue;
 			
 			System.out.print(node + " ");
