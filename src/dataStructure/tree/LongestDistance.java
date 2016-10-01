@@ -1,30 +1,47 @@
 package dataStructure.tree;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
 public class LongestDistance {
 	
-	private static int shortest = 0;
-	private static int longest = 0;
+	private static int longest1 = 0;
+	private static int longest2 = 0;
 	
 	public static void main(String[] args) {
-		DoubleNode root = new BinaryTreeBuilder(10)
+		BinaryNode root = new BinaryNode.Builder(10)
 				.addChild(5, 12)
 				.addChild(4, 7)
 				.build();
-		scan(root, 0);
-		System.out.println(shortest + longest);
+		
+		BinaryNode origin = findOrigin(root);
+		scan(origin.left, 1, true);
+		scan(origin.right, 1, false);
+		
+		System.out.println(longest1 + longest2);
 	}
 	
-	public static void scan(DoubleNode root, int path) {
+	public static BinaryNode findOrigin(BinaryNode root) {
+		BinaryNode result = root;
+		while(result != null && (result.left == null || result.right == null)) {
+			if (result.left == null)
+				result = result.right;
+			else if (result.right == null)
+				result = result.left;
+			else
+				break;
+		}
+		return result;
+	}
+	
+	public static void scan(BinaryNode root, int path, boolean isLeft) {
 		if (root.left == null && root.right == null) {
-			if (shortest == 0 || shortest > path) shortest = path;
-			if (longest < path) longest = path;
+			if (isLeft && longest1 < path) longest1 = path;
+			if (!isLeft && longest2 < path) longest2 = path;
 		}
 		
 		if (root.left != null)
-			scan(root.left, path+1);
+			scan(root.left, path+1, isLeft);
 		if (root.right != null)
-			scan(root.right, path+1);
+			scan(root.right, path+1, isLeft);
 	}
 }
