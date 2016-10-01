@@ -2,15 +2,15 @@ package dataStructure.linkedList;
 
 import java.util.LinkedList;
 
-import util.Node.SingleNode;
+import util.Node.LinkedNode;
 
 public class NearestPublicNode {
 	public static void main(String[] args) {
-		SingleNode head1 = LinkedListBuilder.convert(1,2,3,4,5,6,7);
-		SingleNode head2 = LinkedListBuilder.convert(10,11,3,4,5,6,7);
+		LinkedNode head1 = LinkedNode.Builder.convert(1,2,3,4,5,6,7);
+		LinkedNode head2 = LinkedNode.Builder.convert(10,11,3,4,5,6,7);
 		find(head1, head2);
 	}
-	public static boolean find(SingleNode head1, SingleNode head2) {
+	public static boolean find(LinkedNode head1, LinkedNode head2) {
 		int result = 0;
 		LinkedList<Integer> list1 = new LinkedList<>();
 		LinkedList<Integer> list2 = new LinkedList<>();
