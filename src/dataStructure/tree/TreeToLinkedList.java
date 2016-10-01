@@ -1,37 +1,37 @@
 package dataStructure.tree;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
 public class TreeToLinkedList {
 	
-	static DoubleNode currLast = null;
+	static BinaryNode currLast = null;
 	
 	public static void main(String[] args) {
-		DoubleNode head = new BinaryTreeBuilder(10)
+		BinaryNode head = new BinaryNode.Builder(10)
 				.addChild(4, 16)
 				.addChild(2, 7)
 				.addChild(15, 20)
 				.build();
-		DoubleNode listHead = convert(head);
-		DoubleNode node = listHead;
+		BinaryNode listHead = convert(head);
+		BinaryNode node = listHead;
 		while(node != null) {
 			System.out.print(node.value + " ");
 			node = node.right;
 		}
 	}
 	
-	public static DoubleNode convert(DoubleNode head) {
+	public static BinaryNode convert(BinaryNode head) {
 		currLast = null;
 		convertNode(head);
 		
-		DoubleNode listHead = currLast;
+		BinaryNode listHead = currLast;
 		while(listHead != null && listHead.left != null)
 			listHead = listHead.left;
 		
 		return listHead;
 	}
 	
-	public static void convertNode(DoubleNode node) {
+	public static void convertNode(BinaryNode node) {
 		if (node == null) return;
 		
 		if (node.left != null)

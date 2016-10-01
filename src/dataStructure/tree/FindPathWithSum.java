@@ -3,22 +3,22 @@ package dataStructure.tree;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
 public class FindPathWithSum {
 	public static void main(String[] args) {
-		DoubleNode head = new BinaryTreeBuilder(10)
+		BinaryNode head = new BinaryNode.Builder(10)
 				.addChild(5, 12)
 				.addChild(4, 7)
 				.build();
 		findPath(head, 22);
 	}
 	
-	public static void findPath(DoubleNode head, int sum) {
+	public static void findPath(BinaryNode head, int sum) {
 		checkNode(head, new LinkedList<>(), 0, sum);
 	}
 	
-	public static void checkNode(DoubleNode node, LinkedList<Integer> list, int currSum, int sum) {
+	public static void checkNode(BinaryNode node, LinkedList<Integer> list, int currSum, int sum) {
 		currSum += node.value;
 		list.add(node.value);
 		if (currSum == sum) {

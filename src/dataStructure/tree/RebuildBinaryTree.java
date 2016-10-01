@@ -1,16 +1,16 @@
 package dataStructure.tree;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
 public class RebuildBinaryTree {
 	public static void main(String[] args) {
 		int[] preOrder = {1, 2, 4, 7, 3, 5, 6, 8};
 		int[] inOrder = {4, 7, 2, 1, 5, 3, 8, 6};
-		DoubleNode head = rebuild(preOrder, inOrder, 0, 7, 0, 7);
-		PrintTree.print(head);
+		BinaryNode head = rebuild(preOrder, inOrder, 0, 7, 0, 7);
+		PrintBinaryTree.print(head);
 	}
 	
-	private static DoubleNode rebuild(int[] preOrder, int[] inOrder,
+	private static BinaryNode rebuild(int[] preOrder, int[] inOrder,
 			int preStart, int preEnd,
 			int inStart, int inEnd) {
 		if (preStart > preEnd || inStart > inEnd) return null;
@@ -23,7 +23,7 @@ public class RebuildBinaryTree {
 		}
 		int leftPreEnd = preStart+index-inStart;
 		
-		DoubleNode root = new DoubleNode(head);
+		BinaryNode root = new BinaryNode(head);
 		root.left = rebuild(preOrder, inOrder, preStart+1, leftPreEnd, inStart, index-1);
 		root.right = rebuild(preOrder, inOrder, leftPreEnd+1, preEnd, index+1, inEnd);
 		
