@@ -2,11 +2,11 @@ package dataStructure.tree;
 
 import java.util.LinkedList;
 
-import util.Node.DoubleNode;
+import util.Node.BinaryNode;
 
-public class MirrorTree {
+public class MirrorBinaryTree {
 	public static void main(String[] args) {
-		DoubleNode root = new BinaryTreeBuilder(10)
+		BinaryNode root = new BinaryNode.Builder(10)
 				.addChild(4, 16)
 				.addChild(2, 7)
 				.addChild(15, 20)
@@ -14,14 +14,14 @@ public class MirrorTree {
 		convert(root);
 	}
 	
-	public static void convert(DoubleNode head) {
-		LinkedList<DoubleNode> list = new LinkedList<>();
+	public static void convert(BinaryNode head) {
+		LinkedList<BinaryNode> list = new LinkedList<>();
 		list.add(head);
 		
 		while(!list.isEmpty()) {
-			DoubleNode node = list.pop();
-			DoubleNode left = node.left;
-			DoubleNode right = node.right;
+			BinaryNode node = list.pop();
+			BinaryNode left = node.left;
+			BinaryNode right = node.right;
 			node.left = right;
 			node.right = left;
 			list.add(left);
