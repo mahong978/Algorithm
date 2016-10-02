@@ -2,11 +2,15 @@ package util;
 
 import java.util.LinkedList;
 
-public class Node {
-	public int value;
+public class Node implements Comparable<Node>{
+	protected int value;
 	
 	public Node(int value) {
 		this.value = value;
+	}
+	
+	public int getValue() {
+		return value;
 	}
 	
 	@Override
@@ -103,6 +107,16 @@ public class Node {
 				return head;
 			}
 		}
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		if (value < o.value)
+			return -1;
+		else if (value > o.value)
+			return 1;
+		else
+			return 0;
 	}
 }
 
