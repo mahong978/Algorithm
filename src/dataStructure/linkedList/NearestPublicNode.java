@@ -15,11 +15,11 @@ public class NearestPublicNode {
 		LinkedList<Integer> list1 = new LinkedList<>();
 		LinkedList<Integer> list2 = new LinkedList<>();
 		while(head1.next != null) {
-			list1.push(head1.value);
+			list1.push(head1.getValue());
 			head1 = head1.next;
 		}
 		while(head2.next != null) {
-			list2.push(head2.value);
+			list2.push(head2.getValue());
 			head2 = head2.next;
 		}
 		

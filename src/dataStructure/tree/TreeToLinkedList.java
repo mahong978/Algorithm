@@ -15,7 +15,7 @@ public class TreeToLinkedList {
 		BinaryNode listHead = convert(head);
 		BinaryNode node = listHead;
 		while(node != null) {
-			System.out.print(node.value + " ");
+			System.out.print(node.getValue() + " ");
 			node = node.right;
 		}
 	}

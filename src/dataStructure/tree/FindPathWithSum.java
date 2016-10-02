@@ -19,8 +19,8 @@ public class FindPathWithSum {
 	}
 	
 	public static void checkNode(BinaryNode node, LinkedList<Integer> list, int currSum, int sum) {
-		currSum += node.value;
-		list.add(node.value);
+		currSum += node.getValue();
+		list.add(node.getValue());
 		if (currSum == sum) {
 			Iterator<Integer> it = list.iterator();
 			while(it.hasNext())
@@ -34,6 +34,6 @@ public class FindPathWithSum {
 		}
 		
 		list.removeLast();
-		currSum -= node.value;
+		currSum -= node.getValue();
 	}
 }

@@ -18,7 +18,7 @@ public class Traverse {
 	}
 	
 	public static void preorder(BinaryNode parent) {
-		System.out.print(parent.value + " ");
+		System.out.print(parent.getValue() + " ");
 		
 		if (parent.left != null)
 			preorder((BinaryNode)parent.left);
@@ -31,7 +31,7 @@ public class Traverse {
 		if (parent.left != null)
 			preorder((BinaryNode)parent.left);
 		
-		System.out.print(parent.value + " ");
+		System.out.print(parent.getValue() + " ");
 		
 		if (parent.right != null)
 			preorder((BinaryNode)parent.right);
@@ -44,6 +44,6 @@ public class Traverse {
 		if (parent.right != null)
 			preorder((BinaryNode)parent.right);
 		
-		System.out.print(parent.value + " ");
+		System.out.print(parent.getValue() + " ");
 	}
 }
