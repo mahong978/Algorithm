@@ -26,6 +26,16 @@ public class Node {
 			
 			n1.next = n2;
 		}
+		public String printAll() {
+			LinkedNode temp = this;
+			StringBuilder sb = new StringBuilder();
+			while(temp != null) {
+				sb.append(temp.value);
+				temp = temp.next;
+			}
+			
+			return sb.toString();
+		}
 		
 		public static class Builder {
 			public static LinkedNode convert(int... value) {
